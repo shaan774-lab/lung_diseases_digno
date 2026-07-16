@@ -9,4 +9,5 @@ matplotlib==3.8.0   # ✅ Wheel available for Python 3.12
 opencv-python
 fastapi
 uvicorn
+streamlit
 
