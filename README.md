@@ -24,14 +24,14 @@ This flowchart describes the data processing, model training, and Streamlit infe
 ```mermaid
 graph TD
     %% Datasets & Preprocessing
-    subgraph Data Pipeline
+    subgraph DP [Data Pipeline]
         A[Raw Chest X-Ray Images] --> B{Dataset Split}
         B -->|Train Set| C[Train Augmentation: Resize 224x224, Random Flip, Random Rotation]
         B -->|Test Set| D[Test Transform: Resize 224x224, Normalization]
     end
 
     %% Model and Training
-    subgraph Deep Learning Engine
+    subgraph DLE [Deep Learning Engine]
         C --> E[PyTorch DataLoader]
         E --> F[Pre-trained ResNet-18 Backbone]
         F --> G[Custom Fully Connected Classifier Layer]
@@ -40,7 +40,7 @@ graph TD
     end
 
     %% Web App Inference
-    subgraph Streamlit Web Application
+    subgraph SWA [Streamlit Web Application]
         J[User Interface] -->|Uploads X-ray Image| K[PIL Image Preprocessing]
         I -->|Load Weights| L[ResNet-18 Inference Model]
         K -->|Forward Pass| L
@@ -51,9 +51,9 @@ graph TD
         O --> P
     end
 
-    style Data Pipeline fill:#1a1c23,stroke:#3b82f6,stroke-width:2px,color:#ffffff
-    style Deep Learning Engine fill:#1a1c23,stroke:#ee4c2c,stroke-width:2px,color:#ffffff
-    style Streamlit Web Application fill:#1a1c23,stroke:#ff4b4b,stroke-width:2px,color:#ffffff
+    style DP fill:#1a1c23,stroke:#3b82f6,stroke-width:2px,color:#ffffff
+    style DLE fill:#1a1c23,stroke:#ee4c2c,stroke-width:2px,color:#ffffff
+    style SWA fill:#1a1c23,stroke:#ff4b4b,stroke-width:2px,color:#ffffff
 ```
 
 ---
